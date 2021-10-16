@@ -40,9 +40,13 @@
                     <div class="form-group row">
                         <label class="col-md-2">性別</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
+                            <select class="custom-select" name="gender">
+                                <option value="0">男性</option>
+                                <option value="1">女性</option>
+                            </select>
                         </div>
                     </div>
+                   
                     
                      <div class="form-group row">
                         <label class="col-md-2">趣味</label>
