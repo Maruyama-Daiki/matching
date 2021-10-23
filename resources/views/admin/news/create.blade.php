@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>新規投稿作成画面</h2>
+                <h2>新規投稿</h2>
                 <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)

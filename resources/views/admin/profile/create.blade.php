@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{{-- layouts/admin.blade.phpを読み込む --}}
+{{-- layouts/profile.blade.phpを読み込む --}}
 @extends('layouts.profile')
 
 

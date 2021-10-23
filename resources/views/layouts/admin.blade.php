@@ -43,6 +43,13 @@
                         <ul class="navbar-nav mr-auto">
 
                         </ul>
+                        
+                        <ul class="header-navigation">
+                            <li><a href="#">MATCH</a></li>
+                            <li><a href="/post">POST</a></li>
+                            <li><a href="#">TOLK</a></li>
+                            <li><a href="#">MY PAGE</a></li>
+                        </ul>
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
