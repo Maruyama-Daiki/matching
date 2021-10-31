@@ -16,9 +16,10 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id'); //migration usersのidと繋げる
             $table->string('title'); // ニュースのタイトルを保存するカラム
             $table->string('body');  // ニュースの本文を保存するカラム
-            $table->string('image_path');  // 画像のパスを保存するカラム
+            $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
             $table->timestamps();
         });
     }

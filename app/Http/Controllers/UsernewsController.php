@@ -13,14 +13,13 @@ class UsernewsController extends Controller
     {
         $posts = News::all()->sortByDesc('updated_at');
 
-        if (count($posts) > 0) {
-            $headline = $posts->shift();
-        } else {
-            $headline = null;
-        }
+        //  if (count($posts) > 0) {
+        //      $headline = $posts->shift();
+        //  } else {
+        //     $headline = null;
+        // }
 
-        // news/index.blade.php ファイルを渡している
-        // また View テンプレートに headline、 posts、という変数を渡している
-        return view('news.index', ['headline' => $headline, 'posts' => $posts]);
+        // admin/news/index.blade.php ファイルを渡している
+        return view('admin.news.index', ['news_list' => $posts]);
     }
 }

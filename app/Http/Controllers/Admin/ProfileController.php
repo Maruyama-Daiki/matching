@@ -33,7 +33,7 @@ class ProfileController extends Controller
       
       $profile = new Profile;
       $form = $request->all();
-      
+     
       // フォームから画像が送信されてきたら、保存して、$profile->image_path に画像のパスを保存する
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
@@ -41,6 +41,8 @@ class ProfileController extends Controller
       } else {
           $profile->image_path = null;
       }
+      
+     $form['user_id'] = Auth::id(); //プロフィール作成時にないuser_idを適応させる
       
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
@@ -51,6 +53,6 @@ class ProfileController extends Controller
       $profile->fill($form);
       $profile->save();
       
-      return redirect('admin/news/create');
+      return redirect('admin/profile/create');
   }
 }

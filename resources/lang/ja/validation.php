@@ -149,6 +149,7 @@ return [
         'title' => 'タイトル',
         'body' => '本文',
         'image_path' => '画像',
+        'image_path' => '画像',
         'name' => 'ニックネーム',
         'gender' => '性別'
     ],

@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 // 以下を追記することでNews Modelが扱えるようになる
 use App\News;
 
+// use App\Profile;
+// User::find(1)->profile->name;
+
 class NewsController extends Controller
 {
     // 以下を追記
@@ -31,6 +34,8 @@ class NewsController extends Controller
       } else {
           $news->image_path = null;
       }
+      
+      $form['user_id'] = Auth::id(); //新規投稿作成時にないuser_idを適応させる
       
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);

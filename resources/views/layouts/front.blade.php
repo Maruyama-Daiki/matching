@@ -49,7 +49,7 @@
                             <li><a href="#">MATCH</a></li>
                             <li><a href="/post">POST</a></li>
                             <li><a href="#">TOLK</a></li>
-                            <li><a href="#">MY PAGE</a></li>
+                            <li><a href="/mypage">MY PAGE</a></li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
