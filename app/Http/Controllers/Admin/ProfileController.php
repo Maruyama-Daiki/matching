@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -42,6 +43,7 @@ class ProfileController extends Controller
           $profile->image_path = null;
       }
       
+     
      $form['user_id'] = Auth::id(); //プロフィール作成時にないuser_idを適応させる
       
       // フォームから送信されてきた_tokenを削除する
@@ -53,6 +55,6 @@ class ProfileController extends Controller
       $profile->fill($form);
       $profile->save();
       
-      return redirect('admin/profile/create');
+      return redirect('/mypage');
   }
 }

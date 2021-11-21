@@ -30,3 +30,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post', 'UsernewsController@index')->middleware('auth');
 
 Route::get('/mypage', 'MypageController@index')->middleware('auth');
+
+
+// matchのページのルーティング
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/match', 'UserController@index')->name('user.index');
+});

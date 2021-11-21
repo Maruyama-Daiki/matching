@@ -46,7 +46,7 @@
                         </ul>
                         
                         <ul class="header-navigation">
-                            <li><a href="#">MATCH</a></li>
+                            <li><a href="/match">MATCH</a></li>
                             <li><a href="/post">POST</a></li>
                             <li><a href="#">TOLK</a></li>
                             <li><a href="/mypage">MY PAGE</a></li>
