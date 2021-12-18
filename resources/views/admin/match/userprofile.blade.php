@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYPAGE</title>
+    <title>USERPROFILE</title>
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
@@ -12,7 +12,7 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-@section('title', 'My Page')
+@section('title', 'User Profile')
 
 @section('content')
 <div class="container">
@@ -26,37 +26,34 @@
                             <div class="text col-md-6">
                                 <hr width="100%" align="left" size="8" color="black">
                                 <div class="name">
-                                    <p>名前：{{ str_limit($profile->name,100) }}</p>
+                                    <p>名前：{{ str_limit($userprofile->name,100) }}</p>
                                 </div>
                                 <hr width="100%" align="left" size="8" color="black">
                                 <div class="gender mt-3">
-                                    <p>性別：{{ config('gender.index')[$profile->gender] }}</p>
+                                    <p>性別：{{ config('gender.index')[$userprofile->gender] }}</p>
                                 </div>
                                 <hr width="100%" align="left" size="8" color="black">
                                 <div class="hobby mt-3">
-                                    <p>趣味：{{ str_limit($profile->hobby,100) }}</p>
+                                    <p>趣味：{{ str_limit($userprofile->hobby,100) }}</p>
                                 </div>
                                 <hr width="100%" align="left" size="8" color="black">
                                 <div class="introduce mt-3">
-                                    <p>自己紹介：{{ str_limit($profile->introduce,200) }}</p>
+                                    <p>自己紹介：{{ str_limit($userprofile->introduce,200) }}</p>
                                 </div>
                                 <hr width="100%" align="left" size="8" color="black">
                                 <div class="job mt-3">
-                                    <p>仕事：{{ str_limit($profile->job,100) }}</p>
+                                    <p>仕事：{{ str_limit($userprofile->job,100) }}</p>
                                 </div>
                                 <hr width="100%" align="left" size="8" color="black">
                                 <div class="area mt-3">
-                                    <p>居住区：{{ str_limit($profile->area,100) }}</p>
+                                    <p>居住区：{{ str_limit($userprofile->area,100) }}</p>
                                 </div>
                                 
-                                <div class="mypage_edit_buttom">
-                                     <a href="{{ action('MypageController@edit', ['id' => $profile->id]) }}">編集</a>
-                                </div>
                             </div>
                             
                             <div class="image col-md-6 text-right mt-4">
-                                @if ($profile->image_path)
-                                    <img src="{{ asset('storage/image/' . $profile->image_path) }}" width="auto" height="450px">
+                                @if ($userprofile->image_path)
+                                    <img src="{{ asset('storage/image/' . $userprofile->image_path) }}" width="auto" height="450px">
                                 @endif
                                 </div>
                             </div>

@@ -20,6 +20,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('profile/edit', 'Admin\ProfileController@update');
+    
 });
 
 
@@ -31,8 +32,20 @@ Route::get('/post', 'UsernewsController@index')->middleware('auth');
 
 Route::get('/mypage', 'MypageController@index')->middleware('auth');
 
+Route::get('admin/profile/edit', 'MypageController@edit')->middleware('auth');
+Route::post('admin/profile/edit', 'MypageController@update')->middleware('auth');
+
 
 // matchのページのルーティング
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/match', 'UserController@index')->name('user.index');
+    Route::get('/match', 'UserController@index');
+    Route::post('/swipes', 'SwipeController@store')->name('swipes.store');
+    
+    Route::get('/userprofile', 'UserprofileController@index');
+});
+
+// talkのページのルーティング
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/talk', 'TalkController@index');
+   
 });

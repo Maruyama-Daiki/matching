@@ -25,6 +25,8 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         {{-- この章の後半で作成するCSSを読み込みます --}}
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+        {{-- この章の後半で作成するCSSを読み込みます --}}
+        <link href="{{ secure_asset('css/my_style.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -47,7 +49,7 @@
                         <ul class="header-navigation">
                             <li><a href="/match">MATCH</a></li>
                             <li><a href="/post">POST</a></li>
-                            <li><a href="/#">TOLK</a></li>
+                            <li><a href="/talk">TALK</a></li>
                             <li><a href="/mypage">MY PAGE</a></li>
                         </ul>
 
