@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 use App\Profile;
 use App\Swipe;
 
@@ -17,6 +18,7 @@ class UserController extends Controller
         //Profiles_tableの情報を取得
         $profile_list = Profile::all();
         
+        //ログイン中のユーザーのuser_idを取得
         $current_user_profile = Profile::where('user_id', Auth::id())->first();
         
         $profile=null;
@@ -30,21 +32,24 @@ class UserController extends Controller
                 //Swipes_tableの情報を取得し、スワイプの組み合わせがあるか取得
                 $swipe_list_like = Swipe::where('from_user_id',Auth::id())->where('to_user_id',$profile_list_item->id)->get();
                 
-                //奇数の場合は表示
-                //一旦マッチやLIKEやNOPEしたユーザー以外を表示（null＝まだswipeしていない）
-                if ($gender_sum % 2 == 1 && empty($swipe_list_like)) {
-                    
+                //奇数(異性）の場合は表示
+                //一旦マッチやLIKEやNOPEしたユーザー以外を表示（0＝まだswipeしていない）
+                if ($gender_sum % 2 == 1 && count($swipe_list_like) == 0) {
+                
                 $profile=$profile_list_item;
                 
                 
+   
                 break;
                  } 
             }
+            
              
         } else {
             $profile = null;
         }
    
+  
         return view('admin.match.index', [
             'profile' => $profile]);
     }

@@ -21,6 +21,14 @@
                             @endforeach
                         </ul>
                     @endif
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">NAME</label>
+                        <div class="col-md-10">
+                            <p>{{ str_limit($profile->name,100) }}</p>
+                        </div>
+                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-10">

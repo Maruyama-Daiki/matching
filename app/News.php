@@ -13,5 +13,7 @@ class News extends Model
         'body' => 'required',
     );
     
-    
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

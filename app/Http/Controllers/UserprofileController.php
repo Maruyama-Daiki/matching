@@ -13,8 +13,6 @@ class UserprofileController extends Controller
     {
          $profile = Profile::find($request->user_id);
          
-         //dd($profile);
-         
          
          
          // admin/profile/mypage.blade.php ファイルを渡している

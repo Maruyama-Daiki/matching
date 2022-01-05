@@ -8,17 +8,16 @@ use App\Http\Controllers\Controller;
 
 // 以下を追記することでNews Modelが扱えるようになる
 use App\News;
-
-// use App\Profile;
-// User::find(1)->profile->name;
+use App\Profile;
 
 class NewsController extends Controller
 {
-    // 以下を追記
-  public function add()
+  public function add(Request $request)
   {
+    // Profile Modelからデータを取得する
+      $profile = Profile::where('user_id', Auth::id())->first(); 
     
-      return view('admin.news.create');
+      return view('admin.news.create',['profile' => $profile]);
   }
 
   public function create(Request $request)
@@ -27,7 +26,9 @@ class NewsController extends Controller
       $this->validate($request, News::$rules);
       
       $news = new News;
+      // 送信されてきたフォームデータを格納する
       $form = $request->all();
+      
       
       // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
       if (isset($form['image_path'])) {
@@ -47,6 +48,8 @@ class NewsController extends Controller
       // データベースに保存する
       $news->fill($form);
       $news->save();
+      
+      
       
       // POSTにリダイレクトする
       return redirect('/post');
