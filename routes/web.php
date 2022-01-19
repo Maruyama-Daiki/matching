@@ -47,5 +47,5 @@ Route::group(['middleware' => 'auth'], function () {
 // talkのページのルーティング
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/talk', 'TalkController@index');
-   
+    Route::get('/talkchat', 'TalkController@chat');
 });

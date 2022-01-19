@@ -17,15 +17,11 @@ class UsernewsController extends Controller
         $posts = News::all()->sortByDesc('updated_at');
         $result_posts = array();
         
-         //Profiles_tableの情報を取得
-        //$profile = Profile::all();
-        
         //ログイン中のユーザーのuser_idを取得
         $current_user_id = Auth::id();
-        //$current_user_id = Profile::where('user_id', Auth::id())->first();
-        dump($current_user_id);
         
-        
+        //自分の投稿と、マッチした人の投稿のみを表示させる
+        //自分の投稿を取得する。投稿データのuser_idとログインユーザーのuser_idが一致したら表示
         
         foreach($posts as $post){
             //投稿ニュースのuser_idを取得
@@ -42,23 +38,11 @@ class UsernewsController extends Controller
                             ->first();
             
             
-            if($post_user_id == $current_user_id && $from_matched == $to_matched){
-                
+            if($post_user_id == $current_user_id || (!empty($from_matched) && !empty($to_matched))){
                 array_push($result_posts, $post);
             }
             
-        dump($from_matched);
-        dump($to_matched);
-        dump($post_user_id == $current_user_id && $from_matched == $to_matched);
-        return;
-            dump($post_user_id);
-            
         }
-        dump($result_posts);
-        
-        //自分の投稿と、マッチした人の投稿のみを表示させる
-        //自分の投稿を取得する。投稿データのuser_idとログインユーザーのuser_idが一致したら表示
-        //swipes_tableのis_likeが
 
 
         // admin/news/index.blade.php ファイルを渡している

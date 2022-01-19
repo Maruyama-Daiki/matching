@@ -4,10 +4,23 @@
 
 @section('content')
 <div class="p-user-index">
+    
+    
+@if(!empty($to_matched) && !empty($from_matched))
+<div class="mathing_message text-center">
+<P>mathing</P>
+</div>
+    @else
+    @endif
+    
+    
+    
     @if (!is_null($profile))
     <div class="mphoto text-center">
         @if ($profile->image_path)
-        <image src="{{ asset('storage/image/' . $profile->image_path) }}" title="mphoto" alt="Match photo" width="auto" height="450px"/>
+        <div class="mphoto">
+        <image src="{{ asset('storage/image/' . $profile->image_path) }}" width="auto" height="450px" class="match_photo">
+        </div>
         @endif
         
      <div class="muser_profile">
@@ -35,7 +48,7 @@
                         <input type="hidden" name="is_like" value="0">
         
                         <button class="tno" type="submit">
-                            <i class="fa fa-times fa-3x" aria-hidden="true"></i>
+                            <i class="fa fa-times fa-5x" aria-hidden="true"></i>
                         </button>
                     </form>
                 </div>
@@ -49,7 +62,7 @@
                         
                         
                         <button class="tyes" type="submit">
-                            <i class="fa fa-heart fa-3x" aria-hidden="true"></i>
+                            <i class="fa fa-heart fa-5x" aria-hidden="true"></i>
                         </button>
                     </form>
                 </div>

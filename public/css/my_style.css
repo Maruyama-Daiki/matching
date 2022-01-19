@@ -15,3 +15,22 @@
   font-size: 200%;
 }
 
+.timage {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-position: left top;
+  border: 5px solid #00cc00;
+  /* 枠線を付加 */
+}
+
+.match_photo {
+  border-radius: 20px;
+  border: 9px solid #808080;
+  /* 枠線を付加 */
+}
+
+.tname {
+  margin: 20px 10px 0px 180px;
+}
+
