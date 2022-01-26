@@ -36,7 +36,7 @@ class SwipeController extends Controller
          //取得したuser_idのプロフィール情報を取得。
           $profile_matched = Profile::where('user_id',$user_matched)->first();
         //  dump($user_matched);
-          dump($profile_matched);
+          //dump($profile_matched);
          
          
          
@@ -54,9 +54,9 @@ class SwipeController extends Controller
                             ->where('is_like',1)
                             ->first();
                             
-        dump($from_user_id);
-         dump($to_matched);
-         dump($from_matched);
+        // dump($from_user_id);
+        //  dump($to_matched);
+        //  dump($from_matched);
                             
         //to_matchedとfrom_matchedが空じゃない時、
         if(!empty($to_matched) && !empty($from_matched)){
@@ -70,7 +70,7 @@ class SwipeController extends Controller
             
             
             //マッチした場合、もう一度そのユーザーを表示させる。
-            return view('admin.match.index',['profile' => $profile_matched])->with('message', 'マッチしました');
+            return view('admin.match.index',['profile' => $profile_matched,'to_matched'=>$to_matched,'from_matched'=>$from_matched])->with('message', 'マッチしました');
             
              //return view('admin.match.index', ['profile' => $profile_matchd]);
             // dump("マッチしました。");

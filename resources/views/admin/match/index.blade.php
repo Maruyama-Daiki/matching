@@ -1,3 +1,5 @@
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 @extends('layouts.admin')
 
 @section('title', 'MATCHING')
@@ -10,6 +12,19 @@
 <div class="mathing_message text-center">
 <P>mathing</P>
 </div>
+
+<script type="text/javascript">
+Swal.fire({
+  title: 'マッチしました！！',
+  confirmButtonText: 'OK',
+  confirmButtonColor: '#FF0000',
+}).then((result) => {
+  if (result.isConfirmed) {
+    location.href = "match";
+  }
+})
+</script>
+
     @else
     @endif
     
@@ -18,14 +33,16 @@
     @if (!is_null($profile))
     <div class="mphoto text-center">
         @if ($profile->image_path)
+        <a href="{{ action('UserprofileController@index', ['user_id' => $profile->id]) }}">
         <div class="mphoto">
         <image src="{{ asset('storage/image/' . $profile->image_path) }}" width="auto" height="450px" class="match_photo">
         </div>
+        </a>
         @endif
         
      <div class="muser_profile">
       <div class="mname">
-         <a href="{{ action('UserprofileController@index', ['user_id' => $profile->id]) }}">{{ $profile->name }}</a>
+          <p>{{ $profile->name }}</p>
       </div>
      </div>
     </div>

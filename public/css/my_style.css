@@ -3,16 +3,24 @@
 .tyes {
   color: #ff0000 !important;
   /*赤色にする*/
+  border-radius: 50%;
+  border: 5px solid #ff0000;
+  padding: 10px;
 }
 
 .tno {
   color: #000000 !important;
   /*黒色にする*/
+  border-radius: 50%;
+  border: 5px solid #000000;
+  padding: 10px 20px;
 }
 
-.mname {
+.mname p {
   margin: 20px 10px;
   font-size: 200%;
+  color: #000000;
+  text-shadow: 3px 3px 2px #444444;
 }
 
 .timage {
@@ -26,8 +34,7 @@
 
 .match_photo {
   border-radius: 20px;
-  border: 9px solid #808080;
-  /* 枠線を付加 */
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);
 }
 
 .tname {
