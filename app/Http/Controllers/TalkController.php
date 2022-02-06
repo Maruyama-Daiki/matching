@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Swipe;
 use App\Profile;
+use App\Message;
 
 
 class TalkController extends Controller
@@ -39,19 +40,13 @@ class TalkController extends Controller
                             ->where('to_user_id', $current_user_id)
                             ->where('is_like',1)
                             ->first();
-            
-            //$is_like_sum = $from_matched->is_like + $to_matched->is_like;
-            
-            //if($is_like_sum == 2){
+                            
               //to_matchedとfrom_matchedが空じゃない時、
         if(!empty($to_matched) && !empty($from_matched)){
                 
                 array_push($result_talk_list, $profile);
             }
             
-            // else{
-            //     $profile = null;
-            // }
         }
         
          return view('admin.talk.index',[
@@ -63,8 +58,45 @@ class TalkController extends Controller
 
         public function chat(Request $request)
     {
-        $profile = Profile::find($request->user_id);
+        $result_messages =  Message::where(function($query) use($request){
+                        $query->where('from_user_id', '=', Auth::id())
+                              ->where('to_user_id', '=', $request->to_user_id);
+                    })->orwhere(function($query) use($request){
+                        $query->where('to_user_id', '=', Auth::id())
+                              ->where('from_user_id', '=', $request->to_user_id);
+                    })->get();
+                    
+        $profile = Profile::find($request->to_user_id);
         
-        return view('admin.talk.talkchat', ['userprofile' => $profile]);
+        $current_profile = Profile::where('user_id', Auth::id())->first();
+        
+        
+        return view('admin.talk.talkchat', ['userprofile' => $profile , 'authprofile' => $current_profile , 'messages_list' => $result_messages,'to_user_id'=>$request->to_user_id]);
+        
+    }
+    
+    
+        public function send(Request $request)
+    {
+        $rules = array(
+            'text' => 'required',
+        );
+        
+        $this->validate($request, $rules);
+        
+        $messages = new Message;
+        $form = $request->all();
+        
+        $user_id = $form['to_user_id'];
+        
+        // フォームから送信されてきた_tokenを削除する
+        unset($form['_token']);
+        
+        // データベースに保存する
+        $messages->fill($form);
+        $messages->from_user_id=Auth::id();
+        $messages->save();
+        
+        return redirect("/talkchat?to_user_id=$user_id");
     }
 }

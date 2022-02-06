@@ -48,4 +48,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/talk', 'TalkController@index');
     Route::get('/talkchat', 'TalkController@chat');
+    Route::post('/talkchat', 'TalkController@send');
 });

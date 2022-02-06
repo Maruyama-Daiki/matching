@@ -12,11 +12,6 @@ class MypageController extends Controller
   
     public function index()
     {
-
-        // $profile = Profile::find(Auth::id());
-        // dump($profile);
-        // dump(Auth::id());
-        // return;
         $profile = Profile::where('user_id', Auth::id())->first();
         if (empty($profile))
         {
@@ -27,15 +22,12 @@ class MypageController extends Controller
             // admin/profile/mypage.blade.php ファイルを渡している
             return view('admin.profile.mypage', ['profile' => $profile]);
         }
-        
-        
     }
     
      public function edit(Request $request)
   {
       // Profile Modelからデータを取得する
-      $profile = Profile::where('user_id', Auth::id())->first();  //::find($request->user_id);
-      
+      $profile = Profile::where('user_id', Auth::id())->first();
       return view('admin.profile.edit', ['profile' => $profile]);
   }
 
@@ -47,7 +39,7 @@ class MypageController extends Controller
       // 送信されてきたフォームデータを格納する
       $form = $request->all();
       // Profile Modelからデータを取得する
-      $profile = Profile::where('user_id', Auth::id())->first(); //::find($request->user_id);
+      $profile = Profile::where('user_id', Auth::id())->first(); 
       
       if ($request->remove == 'true') {
           $profile['image_path'] = null;

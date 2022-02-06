@@ -31,7 +31,7 @@
                             </div>
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($post->image_path)
-                                    <img src="{{ asset('storage/image/' . $post->image_path) }}">
+                                    <img src="{{ asset('storage/image/' . $post->image_path) }}" class="post_photo">
                                 @endif
                             </div>
                         </div>
@@ -42,8 +42,9 @@
         </div>
         
         @else
-        <p>まだ投稿がありません。</p>
+        <div class="p-5 m-5 text-center">
+         <h3>まだ投稿がありません。</h3>
+        </div>
         @endif
-    </div>
     </div>
 @endsection

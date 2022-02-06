@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSwipesTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,11 @@ class CreateSwipesTable extends Migration
      */
     public function up()
     {
-        Schema::create('swipes', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
             $table->unsignedBigInteger('from_user_id');
             $table->unsignedBigInteger('to_user_id');
-            $table->integer('is_like');
-            
-            //$table->foreign('from_user_id')->references('id')->on('user')->onDelete('cascade');
-            //$table->foreign('to_user_id')->references('id')->on('user')->onDelete('cascade');
-            
-            
+            $table->string('text');
             $table->timestamps();
         });
     }
@@ -35,6 +29,6 @@ class CreateSwipesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('swipes');
+        Schema::dropIfExists('messages');
     }
 }

@@ -23,8 +23,6 @@ class UserController extends Controller
         
         $profile=null;
         
-    
-        
         if (count($profile_list) > 0) {
             //ログインユーザーの性別(0or1)と、相手の性別(0or1)を足す処理。
             foreach($profile_list as $profile_list_item){
@@ -38,18 +36,14 @@ class UserController extends Controller
                 
                 $profile=$profile_list_item;
                 
-                
-   
                 break;
                  } 
             }
-            
              
         } else {
             $profile = null;
         }
    
-  
         return view('admin.match.index', [
             'profile' => $profile]);
     }

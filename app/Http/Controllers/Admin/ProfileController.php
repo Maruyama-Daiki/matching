@@ -6,12 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-// 以下を追記することでNews Modelが扱えるようになる
+// 以下を追記することでprofile Modelが扱えるようになる
 use App\Profile;
 
 class ProfileController extends Controller
 {
-    //以下を追記
     public function add()
     {
         return view('admin.profile.create');

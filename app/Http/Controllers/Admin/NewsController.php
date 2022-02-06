@@ -49,8 +49,6 @@ class NewsController extends Controller
       $news->fill($form);
       $news->save();
       
-      
-      
       // POSTにリダイレクトする
       return redirect('/post');
   }  

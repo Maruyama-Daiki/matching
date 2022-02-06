@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -33,7 +34,7 @@
                             </div>
                             <div class="talk_image mt-4">
                                 @if ($profile->image_path)
-                                <a href="{{ action('TalkController@chat', ['use_id' => $profile->id]) }}">
+                                <a href="{{ action('TalkController@chat', ['to_user_id' => $profile->id]) }}">
                                     <input type="image" img src="{{ asset('storage/image/' . $profile->image_path) }}" class="timage">
                                 </a>
                                 @endif
@@ -46,9 +47,10 @@
         </div>
         
         @else
-        <p>まだマッチがありません。</p>
+        <div class="p-5 m-5 text-center">
+         <h3>まだマッチがありません。</h3>
+        </div>
         @endif
-    </div>
-    </div>
+</div>
 @endsection
                     

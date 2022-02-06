@@ -37,13 +37,10 @@ class UsernewsController extends Controller
                             ->where('is_like',1)
                             ->first();
             
-            
             if($post_user_id == $current_user_id || (!empty($from_matched) && !empty($to_matched))){
                 array_push($result_posts, $post);
             }
-            
         }
-
 
         // admin/news/index.blade.php ファイルを渡している
         return view('admin.news.index', ['news_list' => $result_posts]);
