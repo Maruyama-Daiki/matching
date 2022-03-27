@@ -22,29 +22,42 @@
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
                     <div class="profile_container">
+                        
                         <div class="row">
                             <div class="text col-md-6">
+                                
                                 <hr width="100%" align="left" size="8" color="black">
+                                
                                 <div class="name">
                                     <p>名前：{{ str_limit($profile->name,100) }}</p>
                                 </div>
+                                
                                 <hr width="100%" align="left" size="8" color="black">
+                                
                                 <div class="gender mt-3">
                                     <p>性別：{{ config('gender.index')[$profile->gender] }}</p>
                                 </div>
+                                
                                 <hr width="100%" align="left" size="8" color="black">
+                                
                                 <div class="hobby mt-3">
                                     <p>趣味：{{ str_limit($profile->hobby,100) }}</p>
                                 </div>
+                                
                                 <hr width="100%" align="left" size="8" color="black">
+                                
                                 <div class="introduce mt-3">
                                     <p>自己紹介：{{ str_limit($profile->introduce,200) }}</p>
                                 </div>
+                                
                                 <hr width="100%" align="left" size="8" color="black">
+                                
                                 <div class="job mt-3">
                                     <p>仕事：{{ str_limit($profile->job,100) }}</p>
                                 </div>
+                                
                                 <hr width="100%" align="left" size="8" color="black">
+                                
                                 <div class="area mt-3">
                                     <p>居住区：{{ str_limit($profile->area,100) }}</p>
                                 </div>
