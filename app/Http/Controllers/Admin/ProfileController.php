@@ -37,8 +37,10 @@ class ProfileController extends Controller
      
       // フォームから画像が送信されてきたら、保存して、$profile->image_path に画像のパスを保存する
       if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $profile->image_path = basename($path);
+        // $path = $request->file('image')->store('public/image');
+        // $profile->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $profile->image_path = Storage::disk('s3')->url($path);
       } else {
           $profile->image_path = null;
       }
