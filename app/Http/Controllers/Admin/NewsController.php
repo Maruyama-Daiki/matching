@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 // 以下を追記することでNews Modelが扱えるようになる
 use App\News;
 use App\Profile;
+use Storage;
 
 class NewsController extends Controller
 {

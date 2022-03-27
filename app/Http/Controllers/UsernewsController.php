@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\News;
 use App\Profile;
 use App\Swipe;
+use Storage;
 
 class UsernewsController extends Controller
 {

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Profile;
 use App\Swipe;
-
+use Storage;
 
 class UserController extends Controller
 {

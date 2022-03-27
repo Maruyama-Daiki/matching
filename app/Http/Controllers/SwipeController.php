@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Profile;
 use App\Swipe;
 use App\user;
+use Storage;
 
 
 class SwipeController extends Controller

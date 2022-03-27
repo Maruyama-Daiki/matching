@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Profile;
+use Storage;
 
 class UserprofileController extends Controller
 {

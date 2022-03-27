@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Swipe;
 use App\Profile;
 use App\Message;
-
+use Storage;
 
 class TalkController extends Controller
 {

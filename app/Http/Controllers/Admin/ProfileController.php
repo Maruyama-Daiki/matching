@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 // 以下を追記することでprofile Modelが扱えるようになる
 use App\Profile;
+use Storage;
 
 class ProfileController extends Controller
 {
