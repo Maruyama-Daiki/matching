@@ -69,7 +69,7 @@
                             
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($profile->image_path)
-                                    <img src="{{ $profile->image_path) }}" width="auto" height="450px" class="mypage_photo">
+                                    <img src="{{ $profile->image_path }}" width="auto" height="450px" class="mypage_photo">
                                 @endif
                                 </div>
                             </div>

@@ -31,7 +31,7 @@
         @if ($profile->image_path)
         <a href="{{ action('UserprofileController@index', ['user_id' => $profile->id]) }}">
             <div class="mphoto">
-            <image src="{{ asset('storage/image/' . $profile->image_path) }}" width="auto" height="450px" class="match_photo">
+            <image src="{{ $profile->image_path }}" width="auto" height="450px" class="match_photo">
             </div>
         </a>
         @endif

@@ -71,7 +71,7 @@
                             
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($userprofile->image_path)
-                                    <img src="{{ asset('storage/image/' . $userprofile->image_path) }}" width="auto" height="450px" class="user_photo">
+                                    <img src="{{ $userprofile->image_path }}" width="auto" height="450px" class="user_photo">
                                 @endif
                                 </div>
                             </div>

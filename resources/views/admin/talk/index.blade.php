@@ -35,7 +35,7 @@
                             <div class="talk_image mt-4">
                                 @if ($profile->image_path)
                                 <a href="{{ action('TalkController@chat', ['to_user_id' => $profile->id]) }}">
-                                    <input type="image" img src="{{ asset('storage/image/' . $profile->image_path) }}" class="timage">
+                                    <input type="image" img src="{{ $profile->image_path }}" class="timage">
                                 </a>
                                 @endif
                             </div>

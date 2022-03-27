@@ -37,7 +37,7 @@
 							<div class="position-relative">
 							    
 							    <a href="{{ action('UserprofileController@index', ['user_id' => $userprofile->id]) }}">
-							     <img src="{{ asset('storage/image/' . $userprofile->image_path) }}" class="rounded-circle mr-1" width="40" height="40">
+							     <img src="{{ $userprofile->image_path }}" class="rounded-circle mr-1" width="40" height="40">
 							    </a>
 							    
 							</div>
@@ -59,7 +59,7 @@
 							@if($message->from_user_id==Auth::id())
 							<div class="chat-message-right pb-4">
 								<div>
-									<img src="{{ asset('storage/image/' . $authprofile->image_path) }}" class="rounded-circle mr-1" width="40" height="40">
+									<img src="{{ $authprofile->image_path }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">{{ $message->updated_at->format('y/n/j/G:i') }}</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
@@ -71,7 +71,7 @@
 							@else
 							<div class="chat-message-left pb-4">
 								<div>
-									<img src="{{ asset('storage/image/' . $userprofile->image_path) }}" class="rounded-circle mr-1" width="40" height="40">
+									<img src="{{ $userprofile->image_path }}" class="rounded-circle mr-1" width="40" height="40">
 									<div class="text-muted small text-nowrap mt-2">{{ $message->updated_at->format('y/n/j/G:i') }}</div>
 								</div>
 								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">

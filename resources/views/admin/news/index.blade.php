@@ -31,7 +31,7 @@
                             </div>
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($post->image_path)
-                                    <img src="{{ asset('storage/image/' . $post->image_path) }}" class="post_photo">
+                                    <img src="{{ $post->image_path }}" class="post_photo">
                                 @endif
                             </div>
                         </div>
